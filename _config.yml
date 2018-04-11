@@ -1,10 +1,10 @@
 # Site settings
-title: Learning to Code
+title: New World Literacy
 header-img: img/home-bg.png
 email: gpianka1@gmail.com
 copyright_name: NotoriousCottonball
 description: > # this means to ignore newlines until "baseurl:"
-  Exhilarated by new ideas
+  Creativity, Craft, && Code
 baseurl: "" # the subpath of your site, e.g. /blog
 twitter_username: 
 github_username:  NotoriousCottonball
