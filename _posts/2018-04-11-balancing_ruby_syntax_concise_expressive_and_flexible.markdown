@@ -116,7 +116,7 @@ def fizzbuzz(i)
 					end
 end
 ```
-While this version of code is technically more abstract, it's not much more of an improvement. Without a good reason for generalizing with our creation of the `#divisible_by?` method, the `F` variable, and the `B` variable, we somewhat obfuscated the code and did extra work for no reason in particular. We didn't actually gain that much flexibility. I guess if we wanted to change the way in which we test for divisibility by 3 or 5, we've got that covered. We've also nixed our reliance on the modulo operator` %`, though we had to define a new method to do so. 
+While this version of code is technically more abstract, it's not much more of an improvement. Without a good reason for generalizing with our creation of the `#divisible_by?` method, the `F` constant, and the `B` constant, we somewhat obfuscated the code and did extra work for no reason in particular. We didn't actually gain that much flexibility. I guess if we wanted to change the way in which we test for divisibility by 3 or 5, we've got that covered. We've also nixed our reliance on the modulo operator` %`, though we had to define a new method to do so. 
 
 It's pretty obvious that if we continue this trajectory of purposeless abstraction we'll end up with some damningly obscure and ugly looking code. If our goal is to create the most generalized and fundamentally encapsulated nugget of wholly abstracted `#fizzbuzz` method, then maybe we're willing to write less expressive and concise code. Absent an overriding reason for this single-minded pursuit of ultimate abstraction, however, we should aim for balance. 
 
