@@ -58,8 +58,8 @@ Sometimes, though, that flexibility can be scary. Consider:
 ```
 class Fixnum
    def +(other)
-	    self - other
-		end
+	 self - other
+	 end
 end
 
 puts 5 + 3
@@ -117,9 +117,9 @@ end
 ```
 While this version of code is technically more abstract, it's not much more of an improvement. Without a good reason for generalizing with our creation of the # `divisible_by?` method, the `F` variable, and the `B` variable, we somewhat obfuscated the code and did extra work for no reason in particular. We didn't actually gain that much flexibility. I guess if we wanted to change the way in which we test for divisibility by 3 or 5, we've got that covered. We've also nixed our reliance on the modulo operator `%`, though we had to define a new method to do it. 
 
-It's pretty obvious that if we continue this trajectory of purposeless abstraction we'll end up with some obscure and ugly looking code. If our goal is to create the most generalized and fundamentally encapsulated nugget of an abstracted # `fizzbuzz` method, then maybe we're willing to write less expressive and concise code. Absent a overriding reason for the single-minded pursuit of ultimate abstraction, however, we should aim for balance. 
+It's pretty obvious that if we continue this trajectory of purposeless abstraction we'll end up with some obscure and ugly looking code. If our goal is to create the most generalized and fundamentally encapsulated nugget of an abstracted # `fizzbuzz` method, then maybe we're willing to write less expressive and concise code. Absent an overriding reason for the single-minded pursuit of ultimate abstraction, however, we should aim for balance. 
 
-Ruby is a powerful, descriptive, and adaptable language that illuminates the full potential of well-written code. Of course, with a plethora of shortcuts come many pitfalls. Ruby makes complex functionality accessible and uncovers the fundamental tension between the three major dimensions of great code. Successful programmers have to be concise, expressive, and flexible, and moreover know when to compromise in favor of the quality most suited to the purpose at hand.
+Ruby is a powerful, descriptive, and adaptable language that illuminates the full potential of well-written code. Of course, with a plethora of shortcuts come many pitfalls. Ruby makes complex functionality accessible and uncovers the fundamental tension between the three major dimensions of great code. Successful programmers have to be concise, expressive, and flexible. Moreover, they must know when to compromise in favor of the quality most suited to the purpose at hand.
 
 
 
