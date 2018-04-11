@@ -28,10 +28,11 @@ In real life, code is read more than it is written. That is, it's important for 
 ```
 class Email
    def initialize(subject, date, headers)
+	 [...]
    end
 end
 ```
-This code is concise, expressive, and easy to work with. If, in the interests of compactness, we were to abbreviate the names of the arguments accepted (i.e., "sub." for "subject), we'd lose immediate readibility. If, in the interests of expressiveness, we expanded the argument names to subject_string & date_string, we'd be adding a lot of noise. If, in the interestes of flexibility, we changed the argument names to var_1, var_2, & var_3, we'd be gaining very little by indicating a wider range of accepted arguments in exchange for losing immediate clarity.  This is a great example of how favoring expressiveness in Ruby code often brings with it an acceptable level of brevity and flexibility. 
+This code is concise, expressive, and easy to work with. If, in the interest of compactness, we were to abbreviate the names of the arguments accepted (i.e., "sub." for "subject), we'd lose immediate readibility. If, in the interest of expressiveness, we expanded the argument names to subject_string & date_string, we'd be adding a lot of noise. If, in the interest of flexibility, we changed the argument names to var_1, var_2, & var_3, we'd be gaining very little by indicating a wider range of accepted arguments in exchange for losing immediate clarity.  This is a great example of how favoring expressiveness in Ruby code often brings with it an acceptable level of brevity and flexibility. 
 
 However, Ruby's expressiveness can sometimes cause problems. Ruby allows for "english" operators `and`, `or`, and `not`. They seem like just another bit of sweet syntactic sugar, but their behavior can be a good deal more sour than anticipated. While they seem like more expressive substitutes for operators `&&`, `||`, and `!`, they carry lower levels of precedence and their use is often problematic and imprecise. 
 ```
