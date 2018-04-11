@@ -24,7 +24,7 @@ Very Confusing. Putting Parentheses around each nested ternary operator expressi
 ```
 But, it's pretty obvious this is not a great approach. Readibility is awful. Syntax is confusing. The choice of nesting ternary operators, while covering a lot of ground in very little space, does little to communicate the intent of the programmer, nor is it very easy to go in and edit the expression. In short, this code says a lot but expresses very little. While compact, it is not expressive, nor is it flexible. 
 
-In real life, code is read more than it is written. That is, it's important for a professional developer to understand code written by others and to ensure their contributions are, in turn, understood by other collaborators. Well-written code is not only efficient and comprehensive, but also clearly communicates intent. Great code is expressive. Take for example, the eloquence and clarity of defining an email class that takes three arguments in Ruby:
+In real life, code is read more often than it is written. That is, it's important for a professional developer to understand code written by others and to ensure their contributions are, in turn, understood by other collaborators. Well-written code is not only efficient and comprehensive, but also clearly communicates intent. Great code is expressive. Take for example, the eloquence and clarity of defining an email class that takes three arguments in Ruby:
 ```
 class Email
    def initialize(subject, date, headers)
