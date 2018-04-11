@@ -57,9 +57,9 @@ Just like that, you can print something to the screen ten times. You don't have 
 Sometimes, though, that flexibility can be scary. Consider:
 ```
 class Fixnum
-   def +(other)
-	 self - other
-	 end
+    def +(other)
+	  self - other
+    end
 end
 
 puts 5 + 3
