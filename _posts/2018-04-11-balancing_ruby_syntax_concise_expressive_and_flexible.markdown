@@ -1,7 +1,7 @@
 ---
 layout: post
 title:      "Balancing Ruby Syntax: Concise, Expressive, and Flexible"
-date:       2018-04-11 15:41:52 +0000
+date:       2018-04-11 11:41:52 -0400
 permalink:  balancing_ruby_syntax_concise_expressive_and_flexible
 ---
 
@@ -119,7 +119,7 @@ While this version of code is technically more abstract, it's not much more of a
 
 It's pretty obvious that if we continue this trajectory of purposeless abstraction we'll end up with some obscure and ugly looking code. If our goal is to create the most generalized and fundamentally encapsulated nugget of an abstracted # `fizzbuzz` method, then maybe we're willing to write less expressive and concise code. Absent a overriding reason for the single-minded pursuit of ultimate abstraction, however, we should aim for balance. 
 
-Ruby is a powerful, descriptive, and adaptible language that illuminates the full potential of well-written code. Of course, with a plethora of shortcuts come many pitfalls. Ruby makes complex functionality accessible and uncovers the fundamental tension between the three major dimensions of great code. Successful programmers have to be concise, expressive, and flexible, and moreover know when to compromise in favor of the quality most suited to the purpose at hand.
+Ruby is a powerful, descriptive, and adaptable language that illuminates the full potential of well-written code. Of course, with a plethora of shortcuts come many pitfalls. Ruby makes complex functionality accessible and uncovers the fundamental tension between the three major dimensions of great code. Successful programmers have to be concise, expressive, and flexible, and moreover know when to compromise in favor of the quality most suited to the purpose at hand.
 
 
 
