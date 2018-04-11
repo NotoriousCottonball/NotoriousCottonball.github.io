@@ -1,14 +1,14 @@
 ---
 layout: post
 title:      "Creativity and Code : The Journey Starts Here "
-date:       2018-03-24 09:58:47 +0000
+date:       2018-03-24 05:58:47 -0400
 permalink:  creativity_and_code_the_journey_starts_here
 ---
 
 
 I vividily remember sitting trying to learn to type in "computer class" in middle school, head held high by necessity as the teacher raised my chin up with an outstretched ruler to make sure I didn't look down at the keyboard and cheat. I couldn't anyway. It was covered in a neon orange rubbery cheater proofing device. I remember going over some boolean search operators and getting marks off for using at most six to seven of my fingers, a haphazard style that I unfortunately continue  to this day. Not much stuck with me from that class. I mean, we were told we could poke around the "world wide internet" for some ideas for papers or whatever, but we could only cite books. If it wasn't printed out in the library, it was good for nothing. Seemed like computer class was a waste of time. Even though, as the computer class instructor took great pains to remind us, we "had at our very fingertips, the greatest search engine the world had ever seen: Alta Vista."
 
-My parents only allowed the presence of a computer in our home around 9th grade after my teachers complained that I could no longer submit hand written papers, so I really didn't really think much of technology when I was younger. Everyone at my highschool seemed to be gearing up their lives to do one of three things: medical school, law school, or business/finance. I bought into the whole thing. Technology was more of a supporting actor. Especially computing and programming. A realm best left to the I.T. folks, it was a small bit player in a bigger world of more serious pursuits. It was certainly not an end in itself. Or the transformative force of communication and creation I see it as today. 
+It was only after my teachers complained that I could no longer submit hand written papers that my family got a computer for the home. Not surprisingly, I really didn't really think much of technology when I was younger. Everyone at my highschool seemed to be gearing up their lives to do one of three things: medical school, law school, or business/finance. I bought into the whole thing. Technology was more of a supporting actor. Especially computing and programming. A realm best left to the I.T. folks, it was a small bit player in a bigger world of more serious pursuits. It was certainly not an end in itself. Or the transformative force of communication and creation I see it as today. 
 
 I ended up studying Analytic Philosophy and European Intellectual History in college and going to Law School. I worked in strategic business planning and seemed to be dead set on seguing from law into business, maybe even going for an MBA. I kind of noticed the use of smartphones and social media beginning to, well, shape the fabric of society and all of that. But it was more of a sideshow. Law and Finance were the important stuff: the solemn, reverant, inner workings of society. They glimmered with prestige and dripped with gravitas. That's what life was about. I was pretty darn sure at least. 
 
