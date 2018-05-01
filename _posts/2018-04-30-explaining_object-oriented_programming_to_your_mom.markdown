@@ -50,7 +50,7 @@ Not quite. And that's kind of where the Functional Programming people are coming
 
 Woah. Hold on a second...What the heck is that?
 
-**Me:"
+**Me:**
 
 It's like when we say a sentence is Imperative: you're telling someone what to do. Declarative is just saying what you want done. I can say I want this trash bag tied off, transported outside, and to end up in the bin by the street. And it's up to you to do whatever you do to accomplish that. Or I can tell you how to do it. 
 
