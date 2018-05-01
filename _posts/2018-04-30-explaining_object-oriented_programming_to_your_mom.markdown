@@ -1,6 +1,6 @@
 ---
 layout: post
-title:      "Object Relationships"
+title:      "(Object) Relationships are Complicated"
 date:       2018-04-30 05:54:03 -0400
 permalink:  explaining_object-oriented_programming_to_your_mom
 ---
