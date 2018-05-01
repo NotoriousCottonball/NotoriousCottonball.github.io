@@ -1,6 +1,6 @@
 ---
 layout: post
-title:      "Balancing Ruby Syntax: Concise, Expressive, and Flexible"
+title:      "What Makes Code Well-Written?: Be Concise, Expressive, and Flexible"
 date:       2018-04-11 11:41:52 -0400
 permalink:  balancing_ruby_syntax_concise_expressive_and_flexible
 ---
