@@ -1,7 +1,7 @@
 ---
 layout: post
-title:      "Explaining Object-Oriented Programming to Your Mom"
-date:       2018-04-30 09:54:02 +0000
+title:      "Object Relationships"
+date:       2018-04-30 05:54:03 -0400
 permalink:  explaining_object-oriented_programming_to_your_mom
 ---
 
