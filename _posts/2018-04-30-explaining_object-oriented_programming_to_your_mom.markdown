@@ -50,7 +50,7 @@ Not quite. And that's kind of where the Functional Programming people are coming
 
 Woah. Hold on a second...What the heck is that?
 
-**Me:**
+**Me:"
 
 It's like when we say a sentence is Imperative: you're telling someone what to do. Declarative is just saying what you want done. I can say I want this trash bag tied off, transported outside, and to end up in the bin by the street. And it's up to you to do whatever you do to accomplish that. Or I can tell you how to do it. 
 
@@ -223,19 +223,19 @@ Or "Car" is a "Vehicle." Or a more practical application for programming, a "Buy
 ```
 class Employee
       def paid
-			      puts "Get's compensated"
+			  puts "Get's compensated"
 			end
 end
 
 class Supervisor < Employee 
       def paid 
-			      puts super + " with lots of real money."
+			  puts super + " with lots of real money."
 			 end
 end
 
 class Intern < Employee
       def paid
-			      puts super + " with exposure and the lifelong experience of unpaid labor."
+			  puts super + " with exposure and the lifelong experience of unpaid labor."
 			end
 end
 ```
@@ -283,31 +283,31 @@ Yup... All those different things that we can categorize as "Being Compensated" 
 ```
 class BeingCompensated
       def drawing_a_salary
-			      puts "Here's your paycheck!"
+			  puts "Here's your paycheck!"
 			end
 			
 			def just_a_psychological_paycheck
-			      puts "Good job!"
+			  puts "Good job!"
 			end
 end
 
 class Supervisor 
       def initialize
-			      @compensation = BeingCompensated.new
+			  @compensation = BeingCompensated.new
 			end
 			
 			def compensated 
-			      @compensation.drawing_a_salary
+			  @compensation.drawing_a_salary
 			end
 end
 
 class Intern
-            def initialize
-			      @compensation = BeingCompensated.new
+        def initialize
+			   @compensation = BeingCompensated.new
 			end
 			
 			def compensated 
-			      @compensation.just_a_psychological_paycheck
+			  @compensation.just_a_psychological_paycheck
 			end
 end
 
