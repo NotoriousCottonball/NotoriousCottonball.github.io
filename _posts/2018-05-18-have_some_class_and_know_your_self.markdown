@@ -182,7 +182,7 @@ It's just the top level context or scope of our Ruby program.
 Which brings us to the Ruby Object Model, an endless source of wonder and fascination.
 
 
-<img src="https://farm4.staticflickr.com/3622/3571683843_526b7a4600_m.jpg" width="480" height="300">
+![](http://1.bp.blogspot.com/_M8ufBq_Cofg/SbZoLrdW8FI/AAAAAAAAAVE/G_eKWR9H4d8/s1600/ruby-object-model.png)
 
 
 Things get complicated when we start to think of `self` within the network of class relationships that power the functionality of the language. Which is kind of the point. The power of Ruby is in the simplicity of the objects and the complexity of their interaction. That's what makes Ruby so well-suites to Metaprogramming, that is, writing code that writes code at runtime. 
