@@ -203,7 +203,7 @@ self.class.superclass
 ![](http://1.bp.blogspot.com/_M8ufBq_Cofg/SbZoLrdW8FI/AAAAAAAAAVE/G_eKWR9H4d8/s1600/ruby-object-model.png)
 
 
-Things get complicated when we start to think of `self` within the network of class relationships that power the functionality of the language. Which is kind of the point. The power of Ruby is in the simplicity of the objects and the complexity of their interaction. That's what makes Ruby so well-suites to Metaprogramming, that is, writing code that writes code at runtime. 
+Things get complicated when we start to think of `self` within the network of class relationships that power the functionality of the language. Which is kind of the point. The power of Ruby is in the simplicity of the objects and the complexity of their interaction. That's what makes Ruby so well-suited to Metaprogramming, that is, writing code that writes code at runtime. 
 
 In order to leverage the full power of Ruby Metaprogramming, we need to have a solid grasp of the object model. We don't want to get lost in the sometimes mind-boggling abstraction of the Ruby Universe. So, have some Class and know (your)Self.
 
