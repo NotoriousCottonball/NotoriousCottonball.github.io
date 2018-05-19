@@ -49,7 +49,7 @@ Dog.class
 #=> Class
 ```
 
-`The class Dog` is of course an object. "Everything in Ruby is an object." So we're told. Not quite: not argument lists or keywords. But we know that whenever something receives a method, it's an object. `Dog` is an instance of the `Class` class and it does inherit methods defined by its class. 
+The class `Dog` is of course an object. "Everything in Ruby is an object." So we're told. Not quite: not argument lists or keywords. But we know that whenever something receives a method, it's an object. `Dog` is an instance of the `Class` class and it does inherit methods defined by its class. `
 
 ```
 Dog.class.methods.sort
