@@ -150,7 +150,7 @@ Now `Dog` actually inherits method `our_cool_method` from its class `Class`.
 
 **VI.**
 
-**The important thing here is that when we use the variable `self` to define the method `all` as in any of the first 3 snippets from above, or just declare the class method outright with `Dog.all`, we're opening a metaclass and not a hierarchical class. **
+**The important thing here is that when we use the variable `self` to define the method `all` as in any of the first 3 snippets from above, or just declare the class method outright with `Dog.all`, we're opening a metaclass and not a hierarchical class.**
 
 In Ruby, methods must be associated with a class of some kind. Our method `all` is really just an instance method of the metaclass associated with the object `Dog`. 
 
