@@ -63,7 +63,7 @@ Checking for methods that can be called on the object `Dog` and the object retur
 
 **III.**
 
-**So, what exactly did we do by stating `def self.all?` **
+**So, what exactly did we do by stating `def self.all?`**
 
 It helps to consider some of the other ways we could have defined the class method `all`:
 
@@ -133,7 +133,7 @@ When we open up that singleton_class, eigenclass, metaclass, whatever, on `Dog`,
 
 **V.**
 
-**`Dog` is an instance of the class `Class`. Methods we write into the singleton class of Dog aren't defined by the class of the object `Dog`. **
+**`Dog` is an instance of the class `Class`. Methods we write into the singleton class of Dog aren't defined by the class of the object `Dog`.**
 
 We could do it that way. Let's define a method inside the class `Class`:
 
