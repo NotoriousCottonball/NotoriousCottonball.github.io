@@ -9,19 +9,19 @@ When I started learning Object-Oriented Ruby, I quickly glossed  over Class and 
 
 ```
 class Dog
-  @@all = []
+ @@all = []
   
-	attr_accessor :name
-  
-	def initialize(name) 
-    puts "bark"
-    @name = name
-    @@all << self.name
-  end
+ attr_accessor :name
+ 
+ def initialize(name) 
+  puts "bark"
+  @name = name
+  @@all << self.name
+ end
     
-  def self.all
-    @@all
-  end
+ def self.all
+  @@all
+ end
 end
 
 
@@ -71,30 +71,30 @@ It helps to consider some of the other ways we could have defined the class meth
 1. 
  class Dog
   def self.all
-    @@all
+   @@all
   end
-end
+ end
 
 2. 
 class Dog
-  class << self
-    def all
-      @@all
-    end
+ class << self
+  def all
+   @@all
   end
+ end
 end
 
 3. 
 class << Dog
-  def all
-    @@all
-  end
+ def all
+  @@all
+ end
 end
 
 
 4.
 def Dog.all
-  @@all
+ @@all
 end
 ```
 
@@ -138,9 +138,9 @@ When we open up that singleton_class, eigenclass, metaclass, whatever, on `Dog`,
 We could do it that way. Let's define a method inside the class `Class`:
 
 class Class
-   def our_awesome_method
-    puts "cool"
-   end
+ def our_awesome_method
+  puts "cool"
+ end
 end
 
 Dog.methods.sort
