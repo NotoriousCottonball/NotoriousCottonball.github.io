@@ -1,12 +1,12 @@
 ---
 layout: post
 title:      "Have Some CLASS and Know (your)SELF"
-date:       2018-05-19 03:53:34 +0000
+date:       2018-05-18 23:53:35 -0400
 permalink:  have_some_class_and_know_your_self
 ---
 
 
-**I. **
+**I.**
 
 When I started learning Object-Oriented Ruby, I quickly glossed  over Class and Self and moved right on. The basic idea of more specific things being instances of more general things didn't seem all that difficult or confusing. Neither did using the term Self within the scope of a Class to indicate a Class Method instead of an Instance Method. 
 
