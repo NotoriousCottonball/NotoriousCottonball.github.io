@@ -187,9 +187,9 @@ Which brings us to the Ruby Object Model, an endless source of wonder and fascin
 
 Things get complicated when we start to think of `self` within the network of class relationships that power the functionality of the language. Which is kind of the point. The power of Ruby is in the simplicity of the objects and the complexity of their interaction. That's what makes Ruby so well-suites to Metaprogramming, that is, writing code that writes code at runtime. 
 
-In order to leverage the full power of Ruby Metaprogramming, we need to have a solid grasp of the object model. We don't want to get lost in the sometimes mind-boggling abstraction of the Ruby Universe.
+In order to leverage the full power of Ruby Metaprogramming, we need to have a solid grasp of the object model. We don't want to get lost in the sometimes mind-boggling abstraction of the Ruby Universe. So, have some Class and know (your)Self.
 
-So, liike the title says, Have Some Class and Know (your) Self. 
+
 
 
 
