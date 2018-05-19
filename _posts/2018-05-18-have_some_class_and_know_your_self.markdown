@@ -63,7 +63,7 @@ Checking for methods that can be called on the object `Dog` and the object retur
 
 **III.**
 
-**So, what exactly did we do by stating `def self.all?`**
+**So, what exactly did we do by stating `def self.all` ?**
 
 It helps to consider some of the other ways we could have defined the class method `all`:
 
