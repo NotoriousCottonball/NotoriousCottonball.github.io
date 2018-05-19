@@ -149,8 +149,10 @@ end
 Dog.methods.sort
 #=> [:!, :!=, :!~, :<, :<=, :<=>, :==, :===, :=~, :>, :>=, :__id__, :__send__, :alias_method, :all, :allocate, :ancestors, :attr, :attr_accessor, :attr_reader, :attr_writer, :autoload, :autoload?, :bark, :class, :class_eval, :class_exec, :class_variable_defined?, :class_variable_get, :class_variable_set, :class_variables, :clone, :const_defined?, :const_get, :const_missing, :const_set, :constants, :context, :define_method, :define_singleton_method, :deprecate_constant, :describe, :display, :dup, :enum_for, :eql?, :equal?, :example_group, :extend, :fcontext, :fdescribe, :freeze, :frozen?, :hash, :include, :include?, :included_modules, :inspect, :instance_eval, :instance_exec, :instance_method, :instance_methods, :instance_of?, :instance_variable_defined?, :instance_variable_get, :instance_variable_set, :instance_variables, :is_a?, :itself, :json_creatable?, :kind_of?, :method, :method_defined?, :methods, :module_eval, :module_exec, :name, :new, :nil?, :object_id,  :pp, :prepend, :private_class_method, :private_constant, :private_instance_methods, :private_method_defined?, :private_methods, :protected_instance_methods, :protected_method_defined?, :protected_methods, :public_class_method, :public_constant, :public_instance_method, :public_instance_methods, :public_method, :public_method_defined?, :public_methods, :public_send, :remove_class_variable, :remove_instance_variable, :remove_method, :respond_to?, :send, :shared_context, :shared_examples, :shared_examples_for, :singleton_class, :singleton_class?, :singleton_method, :singleton_methods, :superclass, :taint, :tainted?, :tap, :to_enum, :to_json, :to_s, :trust, :undef_method, :untaint, :untrust, :untrusted?, :xcontext, :xdescribe, :yield_self]
 
-Now `Dog` actually inherits method `our_cool_method` from its class `Class`.
 ```
+
+
+Now `Dog` actually inherits method `our_cool_method` from its class `Class`.
 
 **VI.**
 
@@ -179,11 +181,16 @@ There's always a `self` just like there's always an object. If we fire up an irb
 
 What the heck is main? 
 
-It's just the top level context or scope of our Ruby program. 
+It's just the top level context or scope of our Ruby program: 
 
-`self.class` returns `#=> Object`
+```
+self.class
+#=> Object
+```
 
 Which brings us to the Ruby Object Model, an endless source of wonder and fascination.
+
+
 
 
 ![](http://1.bp.blogspot.com/_M8ufBq_Cofg/SbZoLrdW8FI/AAAAAAAAAVE/G_eKWR9H4d8/s1600/ruby-object-model.png)
