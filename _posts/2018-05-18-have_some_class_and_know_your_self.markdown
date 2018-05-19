@@ -177,18 +177,25 @@ Our instance object does not inherit the method from its parent class. Instead, 
 
 `self` is, by itself, quite simple. It's just a variable referring to the current object--the object that is receiving the current message. 
 
-There's always a `self` just like there's always an object. If we fire up an irb or whatever and simply type `puts "Hello World!"` something has to receive our message. Just type `self` and the return indicates `#=> main` 
+There's always a `self` just like there's always an object. If we fire up an irb or whatever and simply type `puts "Hello World!"` something has to receive our message:
+
+```
+self
+#=> main
+```
 
 What the heck is main? 
 
-It's just the top level context or scope of our Ruby program: 
+It's just the top level context or scope of our Ruby program. `main` has class `Object`, which in turn belongs to the most fundamental class, the parents class of all classes, `BasicObject`. 
 
 ```
-self.class
-#=> Object
+self.class.superclass
+#=> BasicObject
 ```
 
-Which brings us to the Ruby Object Model, an endless source of wonder and fascination.
+**VII.**
+
+**Which brings us to the Ruby Object Model, an endless source of wonder and fascination.**
 
 
 
