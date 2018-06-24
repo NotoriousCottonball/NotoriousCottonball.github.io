@@ -1,7 +1,7 @@
 ---
 layout: post
 title:      "When Ruby Needs Closure: Blocks, Procs, and Lambdas"
-date:       2018-06-24 13:32:05 +0000
+date:       2018-06-24 09:32:06 -0400
 permalink:  when_ruby_needs_closure_blocks_procs_and_lambdas
 ---
 
@@ -426,9 +426,13 @@ Kind of cool.
 So, to give us a bit of closure: 
 
 1.) Closures are ways of grouping code to execute later.
+
 2.) We can do a lot with blocks, especially when we understand how YIELD works "under the hood," but we can't pass more than one method, return methods from methods, or store our block for reuse. 
+
 3.) Procs and Lambdas belong to the Proc Class and are Proc Objects, so we can assign variables to them and call methods on them. 
+
 4.) Lambdas check arguments, return like regular methods, and initialize via `lambda{}` vs `Proc.new{}`.
+
 5.) Closures are a big deal because Ruby gives us unrivaled versatility through Blocks, Procs, and Lambdas to abstract our constructs, transpose variables from different scopes, and write more elegant code. 
 
 
