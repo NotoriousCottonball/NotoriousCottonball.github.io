@@ -6,7 +6,7 @@ permalink:  lets_get_meta
 ---
 
 
-Simply put, Metaprogramming is writing code that operates on code rather than data. That's an all-encompassing definition that covers the operation of code compilers like bytecode and code generators like the rails gem. With Ruby, we typically mean something more specific when it comes to Metaprogramming: writing code that writes code **Dynamically** and **At Runtime**. 
+Metaprogramming, simply put, is writing code that operates on code rather than data. That's an all-encompassing definition that covers the operation of code compilers like bytecode and code generators like the rails gem. With Ruby, we typically mean something more specific when it comes to Metaprogramming: writing code that writes code **Dynamically** and **At Runtime**. 
 
 Ruby is a great language for Dynamic Metaprogramming given two key characteristics of its higher-order functionality: **Introspection** and **Reflection**. Specifically, Type Introspection and Runtime Reflection. 
 
