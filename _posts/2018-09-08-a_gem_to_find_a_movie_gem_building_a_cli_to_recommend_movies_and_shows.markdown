@@ -27,9 +27,9 @@ The idea of `what_to_watch` is to sort (by streaming_service) and filter (by bes
 
 The application uses the `:title` attribute of the user's selection from the returned list of items to generate a search results page on IMDB. It then scrapes that page, since the closest search result's 
 
-A couple days after I finished a working version of  `what_to_watch`, Vulture.com/streaming reformatted their homepage layout. Unfortunately, my application no longer worked since my Scraper method relied on the previous HTML and a completely different Document Object Model structure. 
+A couple days after I finished a working version of  `what_to_watch`, Vulture.com/streaming reformatted their homepage layout. Unfortunately, my application no longer worked since my Scraper method relied on the previous HTML and a completely different Document Object Model structure.  With live pages, a slight change to the nesting or the renaming of a class can break a scraping script.
 
-However, rewriting the Scraper method for Vulture.com/streaming actually enhanced the application since it now draws on much more structured HTML with patterns that will likely remain consistent update after update. 
+However, rewriting the Scraper method for Vulture.com/streaming actually enhanced the application since it now draws on much more structured HTML with patterns that will likely remain consistent update after update. I tried to make the most of the new architecture, refactoring code in the CLI and Class Models to ensure the ease of slight readjustments in the future. 
 
 #### II. Difficulties / Lessons Learned
 
