@@ -1,7 +1,7 @@
 ---
 layout: post
 title:      "A Gem to Find a (Movie)Gem: Building a CLI to Recommend Movies and Shows"
-date:       2018-09-08 08:39:02 +0000
+date:       2018-09-08 04:39:03 -0400
 permalink:  a_gem_to_find_a_movie_gem_building_a_cli_to_recommend_movies_and_shows
 ---
 
@@ -25,7 +25,15 @@ The first is somewhat hard to scrape and get details from, but provides an up-to
 
 The idea of `what_to_watch` is to sort (by streaming_service) and filter (by best-reviewed-movies, best-reviewed-television, or recently-added-movies/tv) the results of Vulture.com's rating/review system and use IMDB.com to fill in the relevant details. 
 
-The Vulture.com/streaming homepage has a bit of a difficult layout for scraping in that the three main categories (best-reviewed-movies, best-reviewed-television, and recently-added-movies/tv) have drastically different numbers of entries and featured offerings from any number of streaming services. The inconsistent structure(
+The application uses the `:title` attribute of the user's selection from the returned list of items to generate a search results page on IMDB. It then scrapes that page, since the closest search result's 
+
+A couple days after I finished a working version of  `what_to_watch`, Vulture.com/streaming reformatted their homepage layout. Unfortunately, my application no longer worked since my Scraper method relied on the previous HTML and a completely different Document Object Model structure. 
+
+However, rewriting the Scraper method for Vulture.com/streaming actually enhanced the application since it now draws on much more structured HTML with patterns that will likely remain consistent update after update. 
+
+#### II. Difficulties / Lessons Learned
+
+
 
 
 
