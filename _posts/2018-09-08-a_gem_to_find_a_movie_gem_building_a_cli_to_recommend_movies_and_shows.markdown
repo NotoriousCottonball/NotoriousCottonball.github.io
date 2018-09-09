@@ -225,6 +225,10 @@ Therefore, they all inherit from a `Show` class which details the attributes and
 
 The `Scraper` class has two main methods.  The first parses the HTML of Vulture.com/streaming and passes the title and streaming service of recommendations in the designated category as arguments to initialize instances of one of the three models. The model stores the objects generated in the `@@all` array and later calls on the `Scraper` class to set the attributes of a selected instance after parsing the HTML of the item page on IMDB.com. 
 
+The `Scraper` class relies on the `nokogiri` gem, which enables parsing HTML input by creating a Data Object with a host of useful properties and methods for efficient extraction of information. Using CSS selectors on a Nokogiri Data Object returns a Nodelist, which acts very much like an array. Essentially, `Nokogiri::HTML(open("URL") ` allows for parsing and organizing the data of a webpage in a way that fully leverages the power of the Ruby Enumerable. 
+
+
+
 
 
 
