@@ -240,7 +240,23 @@ doc = Nokogiri::HTML(open("http://vulture.com/streaming"))
    block = doc.css("div[data-editable='main']")[model.section]
 ```
 
-Each `block` is composed of rows and the items in those rows. The first item of each row contains the streaming service, and the rest contain the names of the recommended movies and tv  available on that streaming service.  
+Each `block` is composed of rows and the items in those rows. The first item of each row contains the streaming service, and the rest contain the names of the recommended movies and tv  available on that streaming service.  The structure of the HTML lends itself to nested iteration through the `#each` method:
+
+```
+block.css("div.column-item").each do |row|
+      row.css("section").drop(1).each do |item|
+```
+
+Using CSS selectors, the scraping method reaches into each item of each row, skipping the first via the `drop` method, to operate only for every movie/tv item. It then calls on the passed Model Object to initialize a new instance for each of those movie/tv items:
+
+```
+model.new(
+          item.css("div[itemprop='caption']").text.split("\n")[1].strip.gsub("  ", " "),
+          row.css("section")[0].css("h3").text.strip.capitalize
+					)
+```
+
+The Object Instance initializes with a `:title` and `:streaming_service` attribute, the first extracted from the movie/tv items and the latter extracted from the streaming service item skipped over in the nested iteration. Editing and shaping the results into visually appealing form makes good use of Ruby's String methods. 
 
 
 
