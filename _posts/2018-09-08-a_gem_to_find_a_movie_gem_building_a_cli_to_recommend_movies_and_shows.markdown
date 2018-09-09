@@ -49,6 +49,7 @@ However, rewriting the Scraper method for Vulture.com/streaming actually enhance
 
 ### A. Dependencies
 
+
 A Ruby Gem is basically a plugin. But rather than including third party code directly in a project, you just reference the name and version. So Ruby Gems are an automated way of managing code hierarchies. The code for required Ruby Gems is still downloaded, but it's kept separate from the application. 
 
 Enter the Gemfile. To help use the code inside of Gems, RubyGems(a standard package manager for the Ruby Language) overrides the `require` method. In the case of requiring `pry` for example, an error message is raised by `require "pry"`, and RubyGems looks in the Gemfile for the file dependency. Specifically, it looks inside Gem metadata for the file `pry.rb`  It activates the Gem containing that file and adds the code inside that Gem to Ruby's $LOAD_PATH. 
@@ -228,6 +229,33 @@ The `Scraper` class has two main methods.  The first parses the HTML of Vulture.
 The `Scraper` class relies on the `nokogiri` gem, which enables parsing HTML input by creating a Data Object with a host of useful properties and methods for efficient extraction of information. Using CSS selectors on a Nokogiri Data Object returns a Nodelist, which acts very much like an array. Essentially, `Nokogiri::HTML(open("URL") ` allows for parsing and organizing the data of a webpage in a way that fully leverages the power of the Ruby Enumerable. 
 
 
+
+
+
+
+
+
+
+
+
+
+
+## III. The Takeaway 
+
+
+The
+
+
+
+
+
+---------
+
+## Links
+
+[The gemfile on rubygems.org](https://rubygems.org/gems/what_to_watch)
+
+[The project repository on github](https://github.com/NotoriousCottonball/what_to_watch)
 
 
 
