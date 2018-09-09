@@ -233,7 +233,7 @@ Initially, scraping Vulture.com/streaming was incredibly difficult due to a less
 The Vulture.com/streaming homepage consists of four major blocks of recommendatations. They are always in the same order: "Recently Added," "Expiring," "Best TV," and "Best Movies." The application omits the second category and uses three basic categories in the interests of simplicity. The model object (`BestMovies`, `BestTV`, or `RecentlyAdded`)  calling on the `Scraper` provides the position of the corresponding block.
 
 
-`def self.scrape_vulture(model)` accepts one of the model objects as an argument, produces `doc`, a Nokogiri Data Object, selects an array-like collection of divisions with attribute `data-editable` equal to `"main"`, and  sets the `block` equal to the one corresponding to the model that called on it.
+`#self.scrape_vulture(model)` accepts one of the model objects as an argument, produces `doc`, a Nokogiri Data Object, selects an array-like collection of divisions with attribute `data-editable` equal to `"main"`, and  sets the `block` equal to the one corresponding to the model that called on it.
 
    ```
 doc = Nokogiri::HTML(open("http://vulture.com/streaming"))
@@ -258,7 +258,11 @@ model.new(
 
 The Object Instance initializes with a `:title` and `:streaming_service` attribute, the first extracted from the movie/tv items and the latter extracted from the streaming service item skipped over in the nested iteration. Editing and shaping the results into visually appealing form makes good use of Ruby's String methods. 
 
-The second scraping method extracts the rest of the Object Instance's attributes when the user requests more information on a movie/tv show. It's a two step process since the scraping method must first determine the URL for that IMDB.com page for that particular movie/tv show. 
+The second scraping method extracts the rest of the Object Instance's attributes when the user requests more information on a movie/tv show. It's a two step process since the scraping method must first determine the URL for the IMDB.com page for that particular movie/tv show. 
+
+`#self.scrape_imdb(object)` accepts the object instance as an argument and calls on `#self.get_item_page(object)` to obtain the URL. `#self.get_item_page(object)` performs a URL parameter based search to obtain a search results page. It then scrapes the search results page to obtain the URL Path for the item page. 
+
+
 
 
 
