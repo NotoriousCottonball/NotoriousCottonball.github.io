@@ -216,14 +216,14 @@ def which_streaming_services
 ### C. The Class Models
 
 
-The `BestMovies`, `BestTV`, and `RecentlyAdded` classes all share the same functionality except methods related to their storage array `@@all`, the section number they pass to the Scraper, and the title of the list of scraped movies/television they display after the Main Menu. 
+The `BestMovies`, `BestTV`, and `RecentlyAdded` classes all share the same functionality except methods related to their storage array `@@all`, the section number they pass to the Scraper, and the title heading of the list of scraped movies/television they display after the Main Menu. 
 
 Therefore, they all inherit from a `Show` class which details the attributes and methods shared by all three class models. 
 
 
 ### D. The Scraper Service Object
 
-The
+The `Scraper` class has two main methods.  The first parses the HTML of Vulture.com/streaming and passes the title and streaming service of recommendations in the designated category as arguments to initialize instances of one of the three models. The model stores the objects generated in the `@@all` array and later calls on the `Scraper` class to set the attributes of a selected instance after parsing the HTML of the item page on IMDB.com. 
 
 
 
