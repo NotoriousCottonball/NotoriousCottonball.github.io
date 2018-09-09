@@ -34,13 +34,83 @@ However, rewriting the Scraper method for Vulture.com/streaming actually enhance
 #### II. The Code
 
 
+##### A. Dependencies
+
 A Ruby Gem is basically a plugin. But rather than including third party code directly in a project, you just reference the name and version. So Ruby Gems are an automated way of managing code hierarchies. The code for required Ruby Gems is still downloaded, but it's kept separate from the application. 
 
-Enter the Gemfile. To help use the code inside of Gems, RubyGems(a standard package manager for the Ruby Language) overrides the `require` method. In the case of requiring `pry` for example, an error message is raised by `require pry`, and RubyGems looks in the Gemfile for the file dependency. Specifically, it looks inside Gem metadata for the file `pry.rb`  It activates the Gem containing that file and adds the code inside that Gem to Ruby's $LOAD_PATH. 
+Enter the Gemfile. To help use the code inside of Gems, RubyGems(a standard package manager for the Ruby Language) overrides the `require` method. In the case of requiring `pry` for example, an error message is raised by `require "pry"`, and RubyGems looks in the Gemfile for the file dependency. Specifically, it looks inside Gem metadata for the file `pry.rb`  It activates the Gem containing that file and adds the code inside that Gem to Ruby's $LOAD_PATH. 
 
 Bundler helps RubyGems find all the Gems in the Gemfile and all their dependencies. It also acts like a package manager, determining the full set of dependencies required by the project and the subdependencies needed by those dependencies, and so forth.
 
-So, at the top of the first file the application loads, you indicate: `require 'bundler/setup'`.  As of Ruby 1.9, you no longer need to indicate `require 'rubygems'`
+So, at the top of the first file the application loads, you indicate: `require "bundler/setup"`.  As of Ruby 1.9, you no longer need to indicate `require "rubygems"`. It's automatic. 
+
+Bundler configures the load path, clearing it and then filling it with the Gems and Files required in the Gemfile. RubyGems can then easily activate those Gems, adding their `lib` directories to the $LOAD_PATH. Now `require 'pry'` makes sense. The required file is the main, titular `lib` directory file `pry.rb`.  With the `lib` directories of Gems added to the $LOAD_PATH, we can `require` files by name directly from them. So, Bundler kind of configures the $LOAD_PATH and manages it, using RubyGems, `require` and the `$LOAD_PATH`  array. `bundle install`  then finds versions of dependencies that work together and makes sure to install the exact same versions on every machine that runs the application. Through the use of heuristics, shortcuts, and tricks, Bundler resolves dependencies before runtime and provides a consistent application experience. 
+
+When building a Ruby Gem, you specify all these dependencies, along with metadata declarations, in the `.gemspec`. You just have to let know Bundler what to expect:
+
+```
+source "http://www.rubygems.org"
+
+gemspec
+```
+
+That's it. Bundler will add the the load paths listed in the `.gemspec`. The `.gemspec` adds the Ruby Gem's own `lib` directory to the $LOAD_PATH with:
+
+```
+lib = File.expand_path("../lib", __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+```
+
+It then uses RubyGems to load the `lib` directory of every Gem specificied. 
+
+The resulting dependency structure allows me to simply write the following in my executable `what_to_watch`:
+
+```
+#!/usr/bin/env ruby
+
+require "bundler/setup"
+require "what_to_watch"
+
+WhatToWatch::CLI.new.start
+```
+
+Again, having required bundler/setup means I can require a file in the `lib` directory directly with `require "what_to_watch"`.
+
+`what_to_watch.rb` then acts as an environment, declaring all the application's file dependencies:
+
+```
+require "open-uri"
+require "nokogiri"
+require "cgi"
+require "pry"
+
+
+# File Dependencies.
+#Load version.rb first 
+#to define Module WhatToWatch.
+
+require "what_to_watch/version"
+require "what_to_watch/cli"
+require "what_to_watch/scraper"
+require "what_to_watch/show"
+require "what_to_watch/best_movies"
+require "what_to_watch/best_tv"
+require "what_to_watch/recently_added"
+```
+
+By requiring `what_to_watch/version.rb`  through `what_to_watch.rb`,  the application defines the module `WhatToWatch` before executing `WhatToWatch::CLI.new.start`. 
+
+The $LOAD_PATH is configured and managed from the start of the first file loaded. Bundler adds the `lib` directory of `what_to_watch` and the `lib` directories of every required Gem. Right after `require bundler/setup`, files can be required realtive to the $LOAD_PATH where their directories are. 
+
+That's why it's so important to namespace a Gem's files carefully. If my Gem `what_to_watch` had a `pry.rb` file directly in the `lib` folder, that'd be a problem. Both my `require pry` and Pry's `require pry`  It's standard practice to name the main `lib` file after the Gem and to organize all the code in a unique namespace (module). Most of the popular Ruby Gem Projects like `rake` structure their code like this: matching name for the Gem, Module, and the main `lib` file, which they use to require dependencies and set defaults. 
+
+##### B. The CLI
+
+The
+
+
+
+
 
 
 
