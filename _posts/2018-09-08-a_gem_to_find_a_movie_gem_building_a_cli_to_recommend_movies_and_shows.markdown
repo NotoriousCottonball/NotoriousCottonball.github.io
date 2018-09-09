@@ -20,7 +20,7 @@ The **what_to_watch** code repository is on [github](https://github.com/Notoriou
 
 ---------
 
-#### I. The `what_to_watch` Ruby Gem
+### I. The `what_to_watch` Ruby Gem
 
 
 `what_to_watch` is a Ruby Gem that returns best-reviewed and recently_added movies/television based on a user's access to popular streaming services. The application asks the user to respond Yes or No (y/n) to whether they have access to Netflix, Amazon Prime, HBO, Hulu, or Showtime. It then asks if they'd like to see recommendations for Best Movies, Best TV Shows, or Recently-Added Movies/TV. 
@@ -43,10 +43,10 @@ A couple days after I finished a working version of  `what_to_watch`, Vulture.co
 
 However, rewriting the Scraper method for Vulture.com/streaming actually enhanced the application since it now draws on much more structured HTML with patterns that will likely remain consistent update after update. I tried to make the most of the new architecture, refactoring code in the CLI and Class Models to ensure the ease of slight readjustments in the future. 
 
-#### II. The Code
+### II. The Code
 
 
-##### A. Dependencies
+#### A. Dependencies
 
 A Ruby Gem is basically a plugin. But rather than including third party code directly in a project, you just reference the name and version. So Ruby Gems are an automated way of managing code hierarchies. The code for required Ruby Gems is still downloaded, but it's kept separate from the application. 
 
