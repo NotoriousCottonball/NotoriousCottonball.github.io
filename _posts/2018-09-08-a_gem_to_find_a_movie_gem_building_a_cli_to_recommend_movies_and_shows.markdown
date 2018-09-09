@@ -31,7 +31,16 @@ A couple days after I finished a working version of  `what_to_watch`, Vulture.co
 
 However, rewriting the Scraper method for Vulture.com/streaming actually enhanced the application since it now draws on much more structured HTML with patterns that will likely remain consistent update after update. I tried to make the most of the new architecture, refactoring code in the CLI and Class Models to ensure the ease of slight readjustments in the future. 
 
-#### II. Difficulties / Lessons Learned
+#### II. The Code
+
+
+A Ruby Gem is basically a plugin. But rather than including third party code directly in a project, you just reference the name and version. So Ruby Gems are an automated way of managing code hierarchies. The code for required Ruby Gems is still downloaded, but it's kept separate from the application. 
+
+Enter the Gemfile. To help use the code inside of Gems, RubyGems(a standard package manager for the Ruby Language) overrides the `require` method. In the case of requiring `pry` for example, an error message is raised by `require pry`, and RubyGems looks in the Gemfile for the file dependency. Specifically, it looks inside Gem metadata for the file `pry.rb`  It activates the Gem containing that file and adds the code inside that Gem to Ruby's $LOAD_PATH. 
+
+Bundler helps RubyGems find all the Gems in the Gemfile and all their dependencies. It also acts like a package manager, determining the full set of dependencies required by the project and the subdependencies needed by those dependencies, and so forth.
+
+So, at the top of the first file the application loads, you indicate: `require 'bundler/setup'`.  As of Ruby 1.9, you no longer need to indicate `require 'rubygems'`
 
 
 
