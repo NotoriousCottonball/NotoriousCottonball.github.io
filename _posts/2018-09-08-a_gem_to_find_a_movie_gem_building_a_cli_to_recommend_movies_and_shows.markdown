@@ -20,7 +20,7 @@ The **what_to_watch** code repository is on [github](https://github.com/Notoriou
 
 ---------
 
-### I. The `what_to_watch` Ruby Gem
+## I. The `what_to_watch` Ruby Gem
 
 
 `what_to_watch` is a Ruby Gem that returns best-reviewed and recently_added movies/television based on a user's access to popular streaming services. The application asks the user to respond Yes or No (y/n) to whether they have access to Netflix, Amazon Prime, HBO, Hulu, or Showtime. It then asks if they'd like to see recommendations for Best Movies, Best TV Shows, or Recently-Added Movies/TV. 
@@ -43,10 +43,10 @@ A couple days after I finished a working version of  `what_to_watch`, Vulture.co
 
 However, rewriting the Scraper method for Vulture.com/streaming actually enhanced the application since it now draws on much more structured HTML with patterns that will likely remain consistent update after update. I tried to make the most of the new architecture, refactoring code in the CLI and Class Models to ensure the ease of slight readjustments in the future. 
 
-### II. The Code
+## II. The Code
 
 
-#### A. Dependencies
+### A. Dependencies
 
 A Ruby Gem is basically a plugin. But rather than including third party code directly in a project, you just reference the name and version. So Ruby Gems are an automated way of managing code hierarchies. The code for required Ruby Gems is still downloaded, but it's kept separate from the application. 
 
@@ -116,7 +116,7 @@ The $LOAD_PATH is configured and managed from the start of the first file loaded
 
 That's why it's so important to namespace a Gem's files carefully. If my Gem `what_to_watch` had a `pry.rb` file directly in the `lib` folder, that'd be a problem. Both my `require pry` and Pry's `require pry`  It's standard practice to name the main `lib` file after the Gem and to organize all the code in a unique namespace (module). Most of the popular Ruby Gem Projects like `rake` structure their code like this: matching name for the Gem, Module, and the main `lib` file, which they use to require dependencies and set defaults. 
 
-##### B. The CLI Controller
+### B. The CLI Controller
 
 The application is controlled through the WhatToWatch::CLI class, initiated either directly through it's `#start` instance method, or via the executable `bin` file `what_to_watch`. The basic flow is:
 **
@@ -209,13 +209,15 @@ def which_streaming_services
 		[...]
 ```
 
-##### C. The Models
+### C. The Class Models
 
 The `BestMovies`, `BestTV`, and `RecentlyAdded` classes all share the same functionality except methods related to their storage array `@@all`, the section number they pass to the Scraper, and the title of the list of scraped movies/television they display after the Main Menu. 
 
 Therefore, they all inherit from a `Show` class which details the attributes and methods shared by all three class models. 
 
-##### D. The Scraper 
+### D. The Scraper Service Object
+
+
 
 
 
