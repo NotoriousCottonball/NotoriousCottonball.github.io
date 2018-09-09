@@ -6,7 +6,19 @@ permalink:  a_gem_to_find_a_movie_gem_building_a_cli_to_recommend_movies_and_sho
 ---
 
 
-My first Flatiron School project involved creating a Ruby Gem with a Command Line Interfact(CLI) and user input requested access to data from a web page. The project required a strong grasp of Ruby Gem Code Hierarchies, Ruby's `$LOAD_PATH`, the parsing capabilities of the Nokogiri Gem, and Ruby Object Relationships. The application had to exhibit strong Object Oriented Programming design patterns and efficiently extract and display data that is kept updated at an external source. 
+My first Flatiron School project involved creating a Ruby Gem with a Command Line Interfact(CLI) and user input requested access to data from a web page. The project required a strong grasp of Ruby Gem Code Hierarchies, Ruby's `$LOAD_PATH`, the parsing capabilities of the Nokogiri Gem, and Ruby Object Relationships. The application had to exhibit strong Object Oriented Programming design patterns and efficiently extract and display data that is kept updated at an external source.
+
+---------
+
+**what_to_watch** is on [RubyGems](https://rubygems.org/gems/what_to_watch).
+
+To install the gem, type `gem install what_to_watch` on the command prompt
+
+To run the application, type `what_to_watch`
+
+The **what_to_watch** code repository is on [github](https://github.com/NotoriousCottonball/what_to_watch).
+
+---------
 
 #### I. The `what_to_watch` Ruby Gem
 
@@ -104,9 +116,116 @@ The $LOAD_PATH is configured and managed from the start of the first file loaded
 
 That's why it's so important to namespace a Gem's files carefully. If my Gem `what_to_watch` had a `pry.rb` file directly in the `lib` folder, that'd be a problem. Both my `require pry` and Pry's `require pry`  It's standard practice to name the main `lib` file after the Gem and to organize all the code in a unique namespace (module). Most of the popular Ruby Gem Projects like `rake` structure their code like this: matching name for the Gem, Module, and the main `lib` file, which they use to require dependencies and set defaults. 
 
-##### B. The CLI
+##### B. The CLI Controller
 
-The
+The application is controlled through the WhatToWatch::CLI class, initiated either directly through it's `#start` instance method, or via the executable `bin` file `what_to_watch`. The basic flow is:
+**
+* Greet User
+* Ask User Which Streaming Services They Have
+* Main Menu: Ask User Which Category of Recommendations They Want
+* Scrape That Category of Recommendations and Then Sort, Filter, and Display the Results based on the Previous Streaming Services Responses
+* Options Menu: Ask The User if They'd Like more Details/Information on a Particular Item in the List
+* Search IMDB.com for the Title of the Selected Item and Scrape the Search Result Page for the Item Page URL
+* Scrape the Item Page for Additional Details and Display them
+* Item Menu: Ask The User If They would like to Go Back to the Main Menu, Request Details for a Different Item,
+* or Exit **
+
+The Controller encapsulates the code for the various menus in separate CLI Dialogue methods apart from the `#start` menu. The CLI class has an `@input` and `@streaming_services` attribute, the latter in the form of a hash that is edited based on responses at the start of the application. 
+
+The main challenge with the CLI Controller was allowing the user to Exit the program by typing `Exit/exit` at any point while looping if the user entered invalid input . The solution was to nest the conditionals following each call for user input in a while loop. 
+
+An `#exit?`method watches for  `@input.downcase == "exit` and the `#start` method consists of nested loops determined by ` while !exit?`. This serves to both repeat the conditional in the case of invalid input and to ensure that once the user inputs `Exit/exit`, subsequent loops are skipped over right down to the `#exit` method call. 
+
+The CLI Controller utilizes breaks to both cycle through the five `#which_streaming_services` questions, and to allow the user to go back to select another Individual Item from the Returned List. A section of `#start` method illustrating the Nested Loop Structure is below:
+
+```
+def start
+    while !exit?
+      main_commands
+      while !exit?
+      case @input
+      when "1"
+        WhatToWatch::BestMovies.add_shows
+        WhatToWatch::BestMovies.list(@streaming_services)
+        options
+        while !exit?
+        if valid_number?(WhatToWatch::BestMovies.all)
+          WhatToWatch::BestMovies.print_item(@input)
+          item_options
+          while !exit?
+          if @input == "y"
+            options
+            break
+          elsif @input == "n"
+            WhatToWatch::BestMovies.reset!
+            start
+          else 
+            invalid_command
+          end
+          end
+        else
+           invalid_command
+        end
+        end
+				[...]
+```
+
+And for `#which_streaming_services`:
+
+```
+def which_streaming_services
+    puts ""
+    puts "Which Streaming Services do You Have Access To?"
+    puts ""
+    puts "Please Enter y or n to Answer each Question:"
+    
+    puts "1. Do You have Netflix?"
+    @input = gets.strip.downcase
+    while !exit?
+    if @input == "y"
+      @streaming_services[:netflix] = "y"
+      break
+    elsif @input == "n"
+      @streaming_services[:netflix] = "n"
+      break
+    else 
+       invalid_command
+    end
+    end
+    
+    puts "2. Do You have Amazon Prime?"
+    @input = gets.strip.downcase
+    while !exit?
+    if @input == "y"
+      @streaming_services[:amazon_prime] = "y"
+      break
+    elsif @input == "n"
+      @streaming_services[:amazon_prime] = "n"
+      break
+    else 
+       invalid_command
+    end
+    end
+		[...]
+```
+
+##### C. The Models
+
+The `BestMovies`, `BestTV`, and `RecentlyAdded` classes all share the same functionality except methods related to their storage array `@@all`, the section number they pass to the Scraper, and the title of the list of scraped movies/television they display after the Main Menu. 
+
+Therefore, they all inherit from a `Show` class which details the attributes and methods shared by all three class models. 
+
+##### D. The Scraper 
+
+
+
+
+
+
+
+
+
+
 
 
 
