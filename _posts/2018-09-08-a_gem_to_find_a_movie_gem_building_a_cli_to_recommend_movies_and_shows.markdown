@@ -226,7 +226,21 @@ Therefore, they all inherit from a `Show` class which details the attributes and
 
 The `Scraper` class has two main methods.  The first parses the HTML of Vulture.com/streaming and passes the title and streaming service of recommendations in the designated category as arguments to initialize instances of one of the three models. The model stores the objects generated in the `@@all` array and later calls on the `Scraper` class to set the attributes of a selected instance after parsing the HTML of the item page on IMDB.com. 
 
-The `Scraper` class relies on the `nokogiri` gem, which enables parsing HTML input by creating a Data Object with a host of useful properties and methods for efficient extraction of information. Using CSS selectors on a Nokogiri Data Object returns a Nodelist, which acts very much like an array. Essentially, `Nokogiri::HTML(open("URL") ` allows for parsing and organizing the data of a webpage in a way that fully leverages the power of the Ruby Enumerable. 
+The `Scraper` class relies on the `nokogiri` gem, which enables parsing HTML input by creating a Data Object with a host of useful properties and methods for efficient extraction of information. Using CSS selectors on a Nokogiri Data Object returns a NodeSet, which acts very much like an array. Essentially, `Nokogiri::HTML(open("URL") ` allows for parsing and organizing the data of a webpage in a way that fully leverages the power of the Ruby Enumerable.
+
+Initially, scraping Vulture.com/streaming was incredibly difficult due to a less structured design that didn't allow for full use of Ruby's Enumberable methods. The redesign, while forcing me to write a new scraper method, took well to nested iterators. 
+
+The Vulture.com/streaming homepage consists of four major blocks of recommendatations. They are always in the same order: "Recently Added," "Expiring," "Best TV," and "Best Movies." The application omits the second category and uses three basic categories in the interests of simplicity. The model object (`BestMovies`, `BestTV`, or `RecentlyAdded`)  calling on the `Scraper` provides the position of the corresponding block.
+
+
+`def self.scrape_vulture(model)` accepts one of the model objects as an argument, produces `doc`, a Nokogiri Data Object, selects an array-like collection of divisions with attribute `data-editable` equal to `"main"`, and  sets the `block` equal to the one corresponding to the model that called on it.
+
+   ```
+doc = Nokogiri::HTML(open("http://vulture.com/streaming"))
+   block = doc.css("div[data-editable='main']")[model.section]
+```
+
+Each `block` is composed of rows and the items in those rows. The first item of each row contains the streaming service, and the rest contain the names of the recommended movies and tv  available on that streaming service.  
 
 
 
