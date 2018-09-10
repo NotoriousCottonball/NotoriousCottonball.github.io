@@ -37,7 +37,7 @@ The first is somewhat hard to scrape and get details from, but provides an up-to
 
 The idea of `what_to_watch` is to sort (by streaming_service) and filter (by best-reviewed-movies, best-reviewed-television, or recently-added-movies/tv) the results of Vulture.com's rating/review system and use IMDB.com to fill in the relevant details. 
 
-The application uses the `:title` attribute of the user's selection from the returned list of items to generate a search results page on IMDB. It then scrapes that page, since the closest search result's 
+The application uses the `:title` attribute of the user's selection from the returned list of items recommended on Vulture.com/streaming to generate a URL Parameter Search on IMDB.com/find. It then scrapes the search results page for the URL Extension for that title's IMDB page, and then scrapes that page for the requested information.
 
 A couple days after I finished a working version of  `what_to_watch`, Vulture.com/streaming reformatted their homepage layout. Unfortunately, my application no longer worked since my Scraper method relied on the previous HTML and a completely different Document Object Model structure.  With live pages, a slight change to the nesting or the renaming of a class can break a scraping script.
 
@@ -228,7 +228,9 @@ The `BestMovies`, `BestTV`, and `RecentlyAdded` classes all share the same funct
 Therefore, they all inherit from a `Show` class which details the attributes and methods shared by all three class models. 
 
 
-### D. The Scraper Service Object
+### D. The Scraper Service Object and URL Parameter Search
+
+**1.) Scraping Vulture.com/streaming**
 
 The `Scraper` class has two main methods.  The first parses the HTML of Vulture.com/streaming and passes the title and streaming service of recommendations in the designated category as arguments to initialize instances of one of the three models. The model stores the objects generated in the `@@all` array and later calls on the `Scraper` class to set the attributes of a selected instance after parsing the HTML of the item page on IMDB.com. 
 
@@ -262,7 +264,9 @@ model.new(
 					)
 ```
 
-The Object Instance initializes with a `:title` and `:streaming_service` attribute, the first extracted from the movie/tv items and the latter extracted from the streaming service item skipped over in the nested iteration. Editing and shaping the results into visually appealing form makes good use of Ruby's String methods. 
+The Object Instance initializes with a `:title` and `:streaming_service` attribute, the first extracted from the movie/tv items and the latter extracted from the streaming service item skipped over in the nested iteration. Editing and shaping the results into visually appealing form makes good use of Ruby's String methods.
+
+**2.) Searching and Scraping IMDB.com **
 
 The second scraping method extracts the rest of the Object Instance's attributes when the user requests more information on a movie/tv show. It's a two step process since the scraping method must first determine the URL for the IMDB.com page for that particular movie/tv show. 
 
