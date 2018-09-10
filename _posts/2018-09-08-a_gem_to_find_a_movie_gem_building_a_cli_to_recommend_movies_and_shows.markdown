@@ -140,10 +140,12 @@ The main challenge with the CLI Controller was allowing the user to Exit the pro
 
 An `#exit?`method watches for  `@input.downcase == "exit` and the `#start` method consists of nested loops determined by ` while !exit?`. This serves to both repeat the conditional in the case of invalid input and to ensure that once the user inputs `Exit/exit`, subsequent loops are skipped over right down to the `#exit` method call. 
 
-The CLI Controller utilizes breaks to both cycle through the five `#which_streaming_services` questions, and to allow the user to go back to select another Individual Item from the Returned List. A section of `#start` method illustrating the Nested Loop Structure is below:
+The CLI Controller utilizes breaks to both cycle through the five `#which_streaming_services` questions, and to allow the user to go back to select another Individual Item from the Returned List after the Item Menu. Returns with Trailing Conditionals between each request for input in `#which_streaming_services` ensures the user only has to type `Exit/exit` once. A section of the `#start` method illustrating the Nested Loop Structure is below:
 
 ```
 def start
+    while !exit?
+    which_streaming_services
     while !exit?
       main_commands
       while !exit?
@@ -182,7 +184,8 @@ def which_streaming_services
     puts "Which Streaming Services do You Have Access To?"
     puts ""
     puts "Please Enter y or n to Answer each Question:"
-    
+    puts "(Exit: Type exit)"
+    puts ""
     puts "1. Do You have Netflix?"
     @input = gets.strip.downcase
     while !exit?
@@ -197,6 +200,7 @@ def which_streaming_services
     end
     end
     
+    return if exit?
     puts "2. Do You have Amazon Prime?"
     @input = gets.strip.downcase
     while !exit?
@@ -210,6 +214,8 @@ def which_streaming_services
        invalid_command
     end
     end
+    
+    return if exit?
 		[...]
 ```
 
