@@ -6,7 +6,7 @@ permalink:  a_gem_to_find_a_movie_gem_building_a_cli_to_recommend_movies_and_sho
 ---
 
 
-My first Flatiron School project involved creating a Ruby Gem with a Command Line Interfact(CLI) and user input requested access to data from a web page. The project required a strong grasp of Ruby Gem Code Hierarchies, Ruby's `$LOAD_PATH`, the parsing capabilities of the Nokogiri Gem, and Ruby Object Relationships. The application had to exhibit strong Object Oriented Programming design patterns and efficiently extract and display data that is kept updated at an external source.
+My first Flatiron School project involved creating a Ruby Gem with a Command Line Interfact(CLI) and user input requested access to data from a web page. The project required a strong grasp of Ruby Gem Code Hierarchies, Ruby's `$LOAD_PATH`, the parsing capabilities of the Nokogiri Gem, and Ruby Object Relationships. The application had to exhibit strong Object Oriented Programming design patterns and efficiently extract and display data that is kept up-to-date at an external source.
 
 ---------
 
