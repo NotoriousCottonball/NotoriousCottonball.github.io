@@ -301,10 +301,11 @@ object.cast = {}
 ## III. The Takeaway 
 
 
-The 
+The CLI Gem Project covered a wide range of topics. I learned how Ruby manages Code Hierarchies, wrote complex nested logic in a CLI Controller, and built complex extraction methods to Scrape and Iterate through Data Structures. 
 
+The CLI Controller and Scraper Service Object were most difficult components of `what_to_watch`.  I made ample use of `pry` within the Console while testing the Control Flow and determining the right dialogue with the user. While it took hours of experimenting on IMDB.com to find an efficient way to extract details for a movie title extracted from another site, I gained a good understanding of query selectors, URL Encoding, and debugging with Pry. 
 
-
+At some point, I'd like to expand the function of the application and allow it to cover a wider range of streaming recommendations. `what_to_watch` could allow a user to then filter those results by genre and  return snippets of reviews along with recommendations. The Gem could display a simple high/low review score range for each recommendation and  search for and extract information on the cast or filming locations upon user request. 
 
 
 ---------
