@@ -123,30 +123,32 @@ That's why it's so important to namespace a Gem's files carefully. If my Gem `wh
 
 
 The application is controlled through the WhatToWatch::CLI class, initiated either directly through it's `#start` instance method, or via the executable `bin` file `what_to_watch`. The basic flow is:
-**
-* Greet User
-* Ask User Which Streaming Services They Have
-* Main Menu: Ask User Which Category of Recommendations They Want
-* Scrape That Category of Recommendations and Then Sort, Filter, and Display the Results based on the Previous Streaming Services Responses
-* Options Menu: Ask The User if They'd Like more Details/Information on a Particular Item in the List
-* Search IMDB.com for the Title of the Selected Item and Scrape the Search Result Page for the Item Page URL
-* Scrape the Item Page for Additional Details and Display them
-* Item Menu: Ask The User If They would like to Go Back to the Main Menu, Request Details for a Different Item,
-* or Exit **
+ 
+1. Greet User
+2. Ask User Which Streaming Services They Have
+3. Main Menu: Ask User Which Category of Recommendations They Want
+4. Scrape That Category of Recommendations and Then Sort, Filter, and Display the Results based on the Previous Streaming Services Responses
+5. Options Menu: Ask The User if They'd Like more Details/Information on a Particular Item in the List
+6. Search IMDB.com for the Title of the Selected Item and Scrape the Search Result Page for the Item Page URL
+7. Scrape the Item Page for Additional Details and Display them
+8. Item Menu: Ask The User If They would like to Go Back to the Main Menu, Request Details for a Different Item,
+or Exit **
 
 The Controller encapsulates the code for the various menus in separate CLI Dialogue methods apart from the `#start` menu. The CLI class has an `@input` and `@streaming_services` attribute, the latter in the form of a hash that is edited based on responses at the start of the application. 
 
 The main challenge with the CLI Controller was allowing the user to Exit the program by typing `Exit/exit` at any point while looping if the user entered invalid input . The solution was to nest the conditionals following each call for user input in a while loop. 
 
-An `#exit?`method watches for  `@input.downcase == "exit` and the `#start` method consists of nested loops determined by ` while !exit?`. This serves to both repeat the conditional in the case of invalid input and to ensure that once the user inputs `Exit/exit`, subsequent loops are skipped over right down to the `#exit` method call. 
+An `#exit?`method watches for  `@input.downcase == "exit` and the `#start` method consists of nested loops determined by ` while !exit?`. This serves to both repeat the loop in the case of invalid input (which calls again for input) and to ensure that once the user inputs `Exit/exit`, subsequent loops are skipped over right down to the `#exit` method call. 
 
-The CLI Controller utilizes breaks to both cycle through the five `#which_streaming_services` questions, and to allow the user to go back to select another Individual Item from the Returned List after the Item Menu. Returns with Trailing Conditionals between each request for input in `#which_streaming_services` ensures the user only has to type `Exit/exit` once. A section of the `#start` method illustrating the Nested Loop Structure is below:
+At the deepest level of the application, the Item Menu loops in the case of invalid input, breaks out to the outer loop in case the user wants to select another Item, or throws back to the catch at the start of the Main Menu Loop.
+
+A section of the `#start` method illustrating the Nested Logic is below:
 
 ```
 def start
-    while !exit?
     which_streaming_services
     while !exit?
+      catch(:main_menu) do
       main_commands
       while !exit?
       case @input
@@ -163,8 +165,7 @@ def start
             options
             break
           elsif @input == "n"
-            WhatToWatch::BestMovies.reset!
-            start
+            throw(:main_menu)
           else 
             invalid_command
           end
@@ -176,7 +177,7 @@ def start
 				[...]
 ```
 
-And for `#which_streaming_services`:
+`#which_streaming_services` cycles through five requests for input, using conditional returns and breaks to allow valid input to proceed and a single input of `Exit/exit` to exit.
 
 ```
 def which_streaming_services
@@ -216,6 +217,7 @@ def which_streaming_services
     end
     
     return if exit?
+    puts "3. Do You have HBO?"
 		[...]
 ```
 
@@ -223,7 +225,7 @@ def which_streaming_services
 ### C. The Class Models
 
 
-The `BestMovies`, `BestTV`, and `RecentlyAdded` classes all share the same functionality except methods related to their storage array `@@all`, the section number they pass to the Scraper, and the title heading of the list of scraped movies/television they display after the Main Menu. 
+The `BestMovies`, `BestTV`, and `RecentlyAdded` classes share identical functionality except for their storage array `@@all`, the section number they pass to the Scraper, and the heading displayed when they list recommendations. 
 
 Therefore, they all inherit from a `Show` class which details the attributes and methods shared by all three class models. 
 
