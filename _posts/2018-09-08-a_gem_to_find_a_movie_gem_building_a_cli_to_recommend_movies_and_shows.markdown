@@ -1,6 +1,6 @@
 ---
 layout: post
-title:      "A Gem to Find a (Movie)Gem: Building a CLI to Recommend Movies and Shows"
+title:      "A Gem to Find a (Movie)Gem:  A CLI App for Streaming Recommendations"
 date:       2018-09-08 04:39:03 -0400
 permalink:  a_gem_to_find_a_movie_gem_building_a_cli_to_recommend_movies_and_shows
 ---
