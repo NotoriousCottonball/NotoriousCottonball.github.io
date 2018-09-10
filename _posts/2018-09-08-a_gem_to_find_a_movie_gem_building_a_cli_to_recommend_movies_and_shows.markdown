@@ -270,28 +270,38 @@ The Object Instance initializes with a `:title` and `:streaming_service` attribu
 
 The second scraping method extracts the rest of the Object Instance's attributes when the user requests more information on a movie/tv show. It's a two step process since the scraping method must first determine the URL for the IMDB.com page for that particular movie/tv show. 
 
-`#self.scrape_imdb(object)` accepts the object instance as an argument and calls on `#self.get_item_page(object)` to obtain the URL. `#self.get_item_page(object)` performs a URL parameter based search to obtain a search results page. It then scrapes the search results page to obtain the URL Path for the item page. 
+`#self.scrape_imdb(object)` accepts the object instance as an argument and calls on `#self.get_item_page(object)` to obtain the URL. `#self.get_item_page(object)` performs a URL Parameter based search to obtain a search results page. It then scrapes the search results page to obtain the URL Path for the item page and extracts the requested information. 
 
+#self.get_item_page(object) utilizes the `cgi` gem's `#escape` method to URL Encode the string attribute given by `object.title` for use as a Query Parameter. The Query Selectors used are fairly easy to obtain.  Cycling through the search options for a given search input on IMDB.com/find indicates the use of standard key-value pairs in the query component following the first `?`. It's obvious that `q=` denotes the query, and only a little less obvious that `s=tt` denotes searching titles, `s=nm` searching names, `s=kw` searching keywords, and so forth. 
 
+The search results page for a particular title is therefore given by concatenating the URL Encoded title with "https://www.imdb.com/find?s=tt&q=". For some reason including the word "Season"(but not the number) in a title search throws off the search, so it's removed before encoding and concatenating. The scraped search results page is given by:
 
+```
+search_results_page = Nokogiri::HTML(open("https://www.imdb.com/find?s=tt&q=" + 
+    CGI::escape(object.title.gsub("Season ", ""))))
+```
 
+The Document Object Model for the search results page exhibits  a table list format, with the first search result's `<a>` element's href attribute set to the URL Path of that title's IMDB Page:
 
+```
+url = "https://www.imdb.com" + 
+    "#{search_results_page.css("td a").attribute("href").value}"
+```
 
+Scraping the IMDB page is relatively straightforward, with some shaping and editing in preparation for visual display. Given the various combinations of types of cast members (Director, Writer, Creator, Stars, etc.) extracting the `cast` attribute in the form of a hash required a bit of iteration:
 
-
-
-
-
-
-
-
-
+```
+object.cast = {} 
+    item_page.css("div.credit_summary_item").each do |category|
+      object.cast[category.css("h4").text.strip] = category.css("a").collect{|tag|tag.text.strip}.
+      join(", ").gsub(", See full cast & crew", "")
+```
 
 
 ## III. The Takeaway 
 
 
-The
+The 
 
 
 
