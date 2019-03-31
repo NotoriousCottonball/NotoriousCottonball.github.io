@@ -1,6 +1,6 @@
 ---
 layout: post
-title:      "Fit Dish: A Ruby on Rails App Built on a Model-View-Controller Framework"
+title:      "Fit Dish: Model-View-Controller (MVC) Development Through Ruby on Rails "
 date:       2019-03-31 07:21:41 -0400
 permalink:  testing_new_domain
 ---
