@@ -1,7 +1,7 @@
 ---
 layout: post
 title:      "Testing New Domain"
-date:       2019-03-31 11:21:40 +0000
+date:       2019-03-31 07:21:41 -0400
 permalink:  testing_new_domain
 ---
 
