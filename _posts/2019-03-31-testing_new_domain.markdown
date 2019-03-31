@@ -12,7 +12,9 @@ My second Flatiron School project involved creating a Sinatra Web Application wi
 
 ---------
 
-The **fit_sesh** code repository is on [github](https://github.com/NotoriousCottonball/fit_sesh).
+The **fit_dish** application is hosted on  [heroku](https://evening-cliffs-19162.herokuapp.com/).
+
+The **fit_dish** code repository is on [github](https://github.com/NotoriousCottonball/fit_dish).
 
 ---------
 
