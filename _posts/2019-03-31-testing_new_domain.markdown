@@ -2,7 +2,7 @@
 layout: post
 title:      "Fit Dish: Model-View-Controller (MVC) Development Through Ruby on Rails "
 date:       2019-03-31 07:21:41 -0400
-permalink:  testing_new_domain
+permalink:  fit_dish
 ---
 
 
