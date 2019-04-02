@@ -18,6 +18,8 @@ The **fit_dish** code repository is on [github](https://github.com/NotoriousCott
 
 ---------
 
+![Ruby on Rails Architecture](https://i.pinimg.com/originals/13/52/92/1352927bf6c754be8abad20bbf1b7bac.png)
+
 ## I. The Inspiration for Fit Dish
 
 I worked part-time as a personal trainer through law school, so fitness applications hold a special interest for me. After learning Active Record, I started thinking about the parallels between E-commerce site models and categories in Fitness Tracking. I build a Sinatra Web Application called Fit Sesh[The project repository on github](https://github.com/NotoriousCottonball/fit_sesh), allowing a User to Log, Track, and Share their Workout Data. Although expanding the application to fully leverage these relationships was beyond the scope of the project, I set out to demonstrate the concept by giving user's access to Exercise Ratings and Sorted Lists of User's who Frequently Perform or Highly Rate every Exercise. The User Index and Exercise Index therefore provided a source of recommendations and relevant user data to inspire/inform workouts. 
