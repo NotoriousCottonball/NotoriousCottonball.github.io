@@ -1,7 +1,7 @@
 ---
 layout: post
 title:      "Fit Dish: Model-View-Controller (MVC) Development Through Ruby on Rails "
-date:       2019-04-02 13:49:14 +0000
+date:       2019-04-02 09:49:15 -0400
 permalink:  fit_dish_model-view-controller_mvc_development_through_ruby_on_rails
 ---
 
@@ -27,7 +27,7 @@ I worked part-time as a personal trainer through law school, so fitness applicat
 Fit Dish complements Fit Sesh in allowing Health and Fitness minded users to store, share, and rate each other's recipes, while generating a Grocery List from the combination of selected dishes. Users can browse a Recipe Index in several different ways: sorting by most liked, for example, or  searching by ingredient name. Fit Dish maintains an Ingredients Index that users can add to, but is largely automatically generated from components of stored recipes. Users are inspired by ingredient ideas and can even suggest recommended substitutions for any recipe. 
 
 ## II. Associations and Database
-
+GGG
 
 *config.ru* – Runs the Application. Mounts Controllers and declares use of Rack::MethodOverride for Patch/Delete Routes. 
 
