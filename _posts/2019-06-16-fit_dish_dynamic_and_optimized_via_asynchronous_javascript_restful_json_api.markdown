@@ -1,6 +1,6 @@
 ---
 layout: post
-title:      "Fit Dish: Dynamic & Optimized With Asynchronous JavaScript/RESTful JSON API"
+title:      "Fit Dish: Dynamic & Optimized via Asynchronous JavaScript/RESTful JSON API"
 date:       2019-06-16 01:34:58 -0400
 permalink:  fit_dish_dynamic_and_optimized_via_asynchronous_javascript_restful_json_api
 ---
