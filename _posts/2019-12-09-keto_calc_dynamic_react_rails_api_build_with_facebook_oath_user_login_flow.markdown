@@ -1,7 +1,7 @@
 ---
 layout: post
 title:      "Keto Calc: Dynamic REACT/RAILS API Build with Facebook Oath/User Login Flow"
-date:       2019-12-09 22:36:53 +0000
+date:       2019-12-09 17:36:54 -0500
 permalink:  keto_calc_dynamic_react_rails_api_build_with_facebook_oath_user_login_flow
 ---
 
